@@ -75,3 +75,7 @@ gcloud projects create wedge-golf --name="Wedge Golf"
 ```
 
 ```
+**PERMISSIONS FOR GITHUB**
+- create service account
+- add key
+- add as a secret it github actions

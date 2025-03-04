@@ -2,16 +2,16 @@ name: Deploy to Cloud Run
 
 env:
   SERVICE_NAME: custom-fastapi-service
-  PROJECT_ID: wedge-golf-prod
-  DOCKER_IMAGE_URL: us-central1-docker.pkg.dev/wedge-golf-prod/custom-fastapi/custom-fastapi
+  PROJECT_ID: wedge-golf-dev
+  DOCKER_IMAGE_URL: us-central1-docker.pkg.dev/wedge-golf-dev/custom-fastapi/custom-fastapi
 
 on:
   push:
     branches:
-      - main
+      - dev
   pull_request:
     branches:
-      - main
+      - dev
 
 jobs:
   dockerize-and-deploy:
