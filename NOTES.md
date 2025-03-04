@@ -9,7 +9,7 @@ gcloud builds submit --config=cloudbuild.yaml --project wedge-golf .
 
 ## 🐍 Python Local Environment
 ```
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 ```
 
@@ -34,7 +34,6 @@ curl http://localhost:4000/smoke-test/hello-world
 **BUILD DOCKER CONTAINER in GCR**
 ```
 gcloud builds submit --config=cloudbuild.yaml --project wedge-golf-dev .
-
 ```
 **RUN APPLICATION IN GCR**
 ```
