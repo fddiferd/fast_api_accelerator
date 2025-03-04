@@ -8,12 +8,22 @@ gcloud builds submit --config=cloudbuild.yaml --project wedge-golf .
 
 
 ## 🐍 Python Local Environment
+**INITAL SETUP**
 ```
 python3 -m venv .venv
 source .venv/bin/activate
+pip install -r requirements.txt
+```
+**RUN FAST API**
+```
+uvicorn src.main:app --host 0.0.0.0 --port 4000 --reload
+```
+- test: hello world (optional - in another terminal)
+```
+curl http://localhost:4000/smoke-test/hello-world
 ```
 
-## 🚀 Run Local Docker
+## 🚀 Run Local Docker (Optional)
 **START DOCKER**
 ```
 shift + cmd + p 
@@ -78,3 +88,14 @@ gcloud projects create wedge-golf --name="Wedge Golf"
 - create service account
 - add key
 - add as a secret it github actions
+
+
+
+gcloud projects add-iam-policy-binding wedge-golf-dev \
+    --member=serviceAccount:git-hub-secret@wedge-golf-dev.iam.gserviceaccount.com \
+    --role=roles/serviceusage.serviceUsageConsumer
+
+
+gcloud projects add-iam-policy-binding wedge-golf-dev \
+    --member=serviceAccount:git-hub-secret@wedge-golf-dev.iam.gserviceaccount.com \
+    --role=roles/cloudbuild.builds.editor
